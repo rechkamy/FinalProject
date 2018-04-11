@@ -4,7 +4,26 @@ import sys
 import operator
 import math
 
-def trainRocchio:
+def trainRocchio(foreground):
+  dominanceVec = []
+	for value in foreground:
+		if value[1] >= 25:
+			category = value[0]
+			foregroundCoverage = value[1]/fLength
+			for item in background:
+				if item[0] == category:
+					backgroundCoverage = item[1]/bLength
+					break
+
+			dominance = foregroundCoverage/backgroundCoverage
+			dominanceVec.append((category, dominance))
+
+	dominanceVec.sort(key=operator.itemgetter(1), reverse=True)
+	for i in range(10):
+		try:
+			file.write(description + ' ' + dominanceVec[i][0] + ' ' + str(dominanceVec[i][1]) + '\n')
+		except:
+			break
 
   
 def testRocchio:
