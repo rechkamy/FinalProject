@@ -26,7 +26,11 @@ def trainRocchio(foreground):
 			break
 
   
-def testRocchio:
+def testRocchio(description, dictionary):
+  file.write(description + '\n')
+	for value in dictionary[:100]:
+		file.write(value[0] + '\t' + str(round(value[1]/len(dictionary), 3)) + '\n')
+	file.write('\n')
   
   
 
